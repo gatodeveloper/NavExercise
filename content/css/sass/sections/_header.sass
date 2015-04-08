@@ -1,1 +1,187 @@
 header
+	background-color: $magenta
+	z-index: 2
+
+
+	.logo,
+	.icon-menu.icon-menu,
+	nav
+		+inline-block
+		vertical-align: middle
+
+	.logo
+		width: 60px
+		height: 24px
+		background-image: url(../images/HUGE.png)
+		background-size: 60px
+		background-repeat: no-repeat
+		background-position: 0 -60px
+		margin: 24px 48px 24px 24px
+
+		@media screen and (max-width: $ipad-portrait)
+			display: none
+			width: 50px
+			height: 20px
+			background-image: url(../images/HUGE.png)
+			background-size: 50px
+			background-repeat: no-repeat
+			background-position: 0 -50px
+			margin: 20px 48px 20px 20px
+
+			&.show
+				+inline-block
+
+	.icon-menu.icon-menu
+		width: 20px
+		height: 20px
+		font-size: 23px
+		line-height: 20px
+		padding: 20px
+		color: $white
+		text-decoration: none
+		display: none
+		cursor: pointer
+
+		@media screen and (max-width: $ipad-portrait)
+			+inline-block
+			
+			&.hide
+				display: none
+
+
+
+	.icon-toggle-close
+		position: absolute
+		right: -100px
+		font-size: 20px
+		top: 20px
+		color: $white
+		display: none
+		cursor: pointer
+		display: block
+		+prefix(transition, all .3s)
+
+		&.show
+			right: 24px
+
+
+	nav
+		color: $white
+
+		ul
+			list-style: none
+			padding: 0
+			margin: 0
+
+			li
+				+inline-block
+
+				&:hover
+					background-color: $white
+					color: $magenta
+				
+				&.active
+					background-color: $white
+					color: $magenta
+
+					ul
+						display: block
+
+							
+
+				a
+					font-family: "HUGEAvantGardeBold"
+					font-size: 1.3em//6vmin
+					padding: 1.3em 24px
+					text-decoration: none
+					+prefix(transition, all .3s)
+					display: block
+
+				
+				ul
+					display: none
+					position: absolute
+					background-color: $white
+
+					@media screen and (max-width: $ipad-portrait)
+						position: relative
+
+					li
+						display: block
+
+						a
+							display: block
+							color: $black
+							display: block
+							font-family: $font-galaxie
+							font-size: .8em
+							padding: 1em 24px
+							+prefix(transition, all .5s)
+
+							&:hover
+								background-color: $light-gray
+								color: $magenta
+		small
+			display: none
+
+		@media screen and (max-width: $max-width)
+			ul
+				li
+					a
+						padding: 1.3em 10px
+		
+		@media screen and (max-width: $ipad-portrait)
+			position: fixed
+			background-color: $white
+			color: $black
+			width: 70%
+			height: 100%
+			left: -100%
+			top: 60px
+			overflow-y: auto
+			+prefix(transition, all .3s)
+
+			&.show
+				left: 0
+
+
+			ul
+
+				li
+					display: block
+					position: relative
+
+					a
+						font-size: .9em
+						padding: 12px 24px
+
+					.i-submenu
+						position: absolute
+						right: 20px
+						top: 10px
+						color: $magenta
+						+prefix(transition, all .3s)
+						+inline-block
+
+						&:before
+							content: "\e604"
+							font-family: "icon-font"
+							speak: none
+							font-style: normal
+							font-weight: normal
+							font-variant: normal
+							text-transform: none
+							line-height: 1
+							-webkit-font-smoothing: antialiased
+							-moz-osx-font-smoothing: grayscale
+
+
+					&.active
+						.i-submenu
+							+prefix(transform, rotate(180deg))
+
+			small
+				position: absolute
+				bottom: 70px
+				left: 20px
+				display: block

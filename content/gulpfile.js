@@ -32,7 +32,8 @@ var paths = {
   index: './index.html',
   scripts: ['./js/app/*.js', './js/app/**/*.js'],
   sass: ['./css/sass/*.sass', './css/sass/**/*.sass'],
-  images: './img/**/*'
+  images: './img/**/*',
+  fonts: './fonts/**/*'
 
 };
 
@@ -101,6 +102,11 @@ gulp.task('images', function(){
     //.pipe(imagemin())
     .pipe(gulp.dest('../public/images/'));
 });
+gulp.task('fonts', function(){
+  gulp.src(paths.fonts)
+    //.pipe(imagemin())
+    .pipe(gulp.dest('../public/fonts/'));
+});
 
 /**
  *Watch files
@@ -121,5 +127,5 @@ gulp.task('watch:dev', ['watch:html', 'watch:scripts', 'watch:sass']);
 /**
  * Default task
  */
-gulp.task('buildAssets', ['html:index', 'scripts', 'sass', 'images']);
+gulp.task('buildAssets', ['html:index', 'scripts', 'sass', 'images', 'fonts']);
 gulp.task('default', ['buildAssets', 'watch:dev']);
