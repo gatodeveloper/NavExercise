@@ -56,27 +56,12 @@ function init(){
 
 };
 
-
-
-
 function addClass(el, className){
-
 	el.classList.add(className)
-	return;
-	var hasClass = (el.className.indexOf(' '+className+' ') != -1)
-	console.log(hasClass)
-	el.className += ' '+className;
-
 };
 
 function removeClass(el, className){
-
 	return el.classList.remove( className );
-
-	var elClass = ' '+el.className+' ';
-	while(elClass.indexOf(' '+className+' ') != -1)
-	elClass = elClass.replace(' '+className+' ', '');
-	el.className = elClass;
 };
 
 function removeAllClass(els, className){
